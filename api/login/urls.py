@@ -11,6 +11,10 @@ api_v1_urlpatterns = [
     path(
         f"{API_PREFIX}/v1/accounts/",
         include(("login.apps.accounts.api.v1.urls", "accounts"), namespace="api-v1-accounts"),
+    ),
+    path(
+        f"{API_PREFIX}/v1/blog/",
+        include(("login.apps.blog.api.v1.urls", "blog"), namespace="api-v1-blog"),
     )
 ]
 

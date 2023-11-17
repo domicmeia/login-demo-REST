@@ -1,0 +1,1 @@
+from .post import Tag, Post  # noqa: F401

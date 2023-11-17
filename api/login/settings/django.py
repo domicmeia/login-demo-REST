@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # First-party apps
     "login.apps.common",
     "login.apps.accounts",
+    "login.apps.blog",
 ] + env.list("LOGIN_DEV_INSTALLED_APPS", default=[])
 
 MIDDLEWARE = [
@@ -100,7 +101,7 @@ CSRF_COOKIE_NAME = "c"
 
 X_FRAME_OPTIONS = env.str("LOGIN_X_FRAME_OPTIONS", default="SAMEORIGIN")
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ko-kr"
 
 TIME_ZONE = env.str("LOGIN_TIME_ZONE", default="UTC")
 

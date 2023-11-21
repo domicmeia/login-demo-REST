@@ -11,3 +11,7 @@ class Post(CoreModel):
     text = models.TextField()
     tags = models.ManyToManyField(Tag, related_name='posts', blank=True)
     author = models.ForeignKey(UserAccount, related_name='posts', on_delete=models.CASCADE, blank=True, null=True)
+
+class Comment(CoreModel):
+    author = models.ForeignKey(UserAccount, related_name='comments', on_delete=models.CASCADE, blank=True, null=True)
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE, blank=True, null=True)

@@ -1,1 +1,1 @@
-from .post import Tag, Post  # noqa: F401
+from .post import Tag, Post, Comment # noqa: F401

@@ -3,25 +3,27 @@ from rest_framework import status
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
 
-from login.apps.blog.models import Post, Comment
-from login.apps.blog.api.v1.serializers.post import PostSerializer, CommentSerializer
+from login.apps.blog.models import Comment
+from login.apps.blog.api.v1.serializers.post import CommentSerializer
 
-class PostCreateAPIView(CreateAPIView):
-    serializer_class = PostSerializer
+class CommentListCreateAPIView(CreateAPIView):
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.active()
 
     @extend_schema(
-        summary="Post Create", tags=["Blog"], responses={status.HTTP_204_NO_CONTENT: OpenApiResponse()}
+        summary="Comment Create", tags=["Blog"], responses={status.HTTP_204_NO_CONTENT: OpenApiResponse()}
     )
 
     def post(self, request, *args, **kwargs):
         super().post(request, *args, **kwargs)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class PostListAPIView(ListAPIView):
-    serializer_class = PostSerializer
+class CommentListAPIView(ListAPIView):
+    serializer_class = CommentSerializer
+    queryset = Comment.objects.active()
 
     @extend_schema(
-        summary="Post list", tags=["Blog"], responses={status.HTTP_204_NO_CONTENT: OpenApiResponse()}
+        summary="Comment list", tags=["Blog"], responses={status.HTTP_204_NO_CONTENT: OpenApiResponse()}
     )
 
     def get(self, request, *args, **kwargs):

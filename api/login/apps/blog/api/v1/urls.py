@@ -10,6 +10,6 @@ from login.apps.blog.api.v1.views.post import (
 urlpatterns = [
     path('posts/create/', PostCreateAPIView.as_view(), name='post_create'),
     path('posts/list/', PostListAPIView.as_view(), name='post_list'),
-    path('posts/update/<uuid:pk>/', PostUpdateAPIView.as_view(), name='post_update'),
-    path('posts/delete/<uuid:pk>/', PostDestroyAPIView.as_view(), name='post_destroy')
+    path('posts/<uuid:pk>/update/', PostUpdateAPIView.as_view(), name='post_update'),
+    path('posts/<uuid:pk>/delete/', PostDestroyAPIView.as_view(), name='post_destroy')
 ]

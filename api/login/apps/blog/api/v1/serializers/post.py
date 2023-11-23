@@ -21,6 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = {'pk', 'title', 'text', 'tags', 'author', 'comments', }
 
+
 class CommentSerializer(serializers.ModelSerializer):
     author = UserSerializer(required=False, read_only=True)
     post = serializers.SlugRelatedField(slug_field='uuid', read_only=True)
